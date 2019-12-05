@@ -3,3 +3,4 @@
 /crawling/api_keys.json
 /crawling/mysql_connect_conf.json
 /crawling/__pycache__
+/config

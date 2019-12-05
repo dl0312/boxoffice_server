@@ -6,7 +6,8 @@
   "author": "Geon Lee <leegun2003@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "graphql-yoga": "^1.18.3"
+    "graphql-yoga": "^1.18.3",
+    "mysql2": "^2.0.1"
   },
   "scripts": {
     "start": "nodemon --exec babel-node index.js"

@@ -3,21 +3,26 @@
 GraphQL Server for Boxoffice
 
 ## CONFIG
+
 you should add config or key files
 
-* ./crawling/api_keys.json
+- ./crawling/api_keys.json
+
 ```json
 {
   "kobis": [${KOBIS_API_KEY}, ...],
   "tmdb": [${TMDB_API_KEY}, ...],
   "naver": [
-    { 
-        "clientId": ${NAVER_CLIENT_ID}"clientSecret": ${NAVER_CLIENT_SECRET} 
+    {
+        "clientId": ${NAVER_CLIENT_ID},
+        "clientSecret": ${NAVER_CLIENT_SECRET}
     }
   ]
 }
 ```
-* ./crawling/mysql_connect_conf.json
+
+- ./crawling/mysql_connect_conf.json
+
 ```json
 {
   "host": ${DB_SERVER_IP},
@@ -28,6 +33,17 @@ you should add config or key files
 }
 ```
 
+- ./config/db.config.js
+
+```js
+export const dbConfig = {
+  host: ${DB_SERVER_IP},
+  user: ${DB_USERNAME},
+  password: ${DB_PASSWORD},
+  database: ${DB_NAME}
+};
+```
+
 ## DB QUERY
 
 ```sql
@@ -35,7 +51,9 @@ CREATE DATABASE ${DB_NAME}
 ```
 
 ### DB SCHEMAS
-* movie
+
+- movie
+
 ```sql
 CREATE TABLE `movie` (
   `movieCd` varchar(100) NOT NULL,
@@ -48,7 +66,9 @@ CREATE TABLE `movie` (
   PRIMARY KEY (`movieCd`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
 ```
-* boxoffice
+
+- boxoffice
+
 ```sql
 CREATE TABLE `boxoffice` (
   `showCnt` bigint DEFAULT NULL,

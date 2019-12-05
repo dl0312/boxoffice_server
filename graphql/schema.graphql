@@ -5,6 +5,17 @@ type Person {
   gender: String!
 }
 
+type Movie {
+  movieCd: String!
+  movieNm: String!
+  movieNmEn: String
+  movieNmOg: String
+  tmdbId: String!
+  multi: String!
+  nation: String!
+}
+
 type Query {
   people: [Person]
+  getAllMovies: [Movie]
 }
