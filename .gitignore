@@ -1,0 +1,5 @@
+/yarn.lock
+/node_modules
+/crawling/api_keys.json
+/crawling/mysql_connect_conf.json
+/crawling/__pycache__
