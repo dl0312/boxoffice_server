@@ -1,7 +1,7 @@
 import mysql from "mysql2/promise";
 import { dbConfig } from "../config/db.config";
 
-const pool = mysql.createPool({
+const connection = mysql.createPool({
   host: dbConfig.host,
   user: dbConfig.user,
   password: dbConfig.password,
@@ -11,28 +11,29 @@ const pool = mysql.createPool({
   queueLimit: 0
 });
 
-export const people = [
-  {
-    id: 1,
-    name: "dave",
-    age: 18,
-    gender: "male"
-  },
-  {
-    id: 2,
-    name: "dave",
-    age: 18,
-    gender: "male"
-  },
-  {
-    id: 3,
-    name: "dave",
-    age: 18,
-    gender: "male"
-  }
-];
-
 export const getAllMovies = async () => {
-  const [rows] = await pool.query("select * from movie");
+  const [rows] = await connection.query("select * from movie");
+  return rows;
+};
+
+export const getMoviesByCurrentDate = async () => {
+  const [rows] = await connection.query("select * from movie");
+  return rows;
+};
+
+export const getBoxoffices = async () => {
+  const [rows] = await connection.query("select * from boxoffice");
+  return rows;
+};
+
+export const getBoxofficesByCurrentDate = async currentDate => {
+  const [rows] = await connection.query(
+    "SELECT * FROM `boxoffice` WHERE `currentDate` = ?",
+    [currentDate],
+    (err, results) => {
+      console.log(err, results);
+    }
+  );
+  console.log(rows.length);
   return rows;
 };

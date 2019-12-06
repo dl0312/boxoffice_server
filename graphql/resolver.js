@@ -1,9 +1,13 @@
-import { getAllMovies, people } from "./db";
+import { getBoxoffices, getBoxofficesByCurrentDate } from "./db";
 
 const resolvers = {
   Query: {
-    people: () => people,
-    getAllMovies: () => getAllMovies()
+    getAllMovies: (obj, args, context, info) => getAllMovies(),
+    getBoxoffices: (obj, args, context, info) => getBoxoffices(),
+    getBoxofficesByCurrentDate: (obj, args, context, info) => {
+      const { currentDate } = args;
+      return getBoxofficesByCurrentDate(currentDate);
+    }
   }
 };
 

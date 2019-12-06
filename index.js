@@ -1,9 +1,15 @@
 import { GraphQLServer } from "graphql-yoga";
+import {
+  typeDefs as scalarsTypeDefs,
+  resolvers as scalarsResolvers
+} from "graphql-scalars";
 import resolvers from "./graphql/resolver";
 
 const server = new GraphQLServer({
-  typeDefs: "graphql/schema.graphql",
-  resolvers
+  resolvers: [...scalarsResolvers, resolvers],
+  typeDefs: ["graphql/schema.graphql"]
 });
 
-server.start(() => console.log("Graphql Server Running"));
+server.start(({ port }) =>
+  console.log(`🚀 Graphql Server is Running at http://localhost:${port}`)
+);
