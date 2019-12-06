@@ -1,8 +1,10 @@
-type Person {
-  id: Int!
-  name: String!
-  age: Int!
-  gender: String!
+enum Multi {
+  Y
+  N
+}
+enum Nation {
+  K
+  F
 }
 
 type Movie {
@@ -11,11 +13,32 @@ type Movie {
   movieNmEn: String
   movieNmOg: String
   tmdbId: String!
-  multi: String!
-  nation: String!
+  multi: Multi!
+  nation: Nation!
+}
+
+type Boxoffice {
+  showCnt: Int!
+  scrnCnt: Int!
+  rankOldAndNew: Int!
+  movieCd: String!
+  audiAcc: Int!
+  audiCnt: Int!
+  salesShare: Float!
+  rank: Int!
+  salesAmt: Float!
+  salesAcc: Float!
+  currentDate: String!
+  totalRank: Int!
+  audiChange: Float!
+  salesChange: Float!
+  rankInten: Int!
+  multi: Multi!
+  nation: Nation!
 }
 
 type Query {
-  people: [Person]
   getAllMovies: [Movie]
+  getBoxoffices: [Boxoffice]
+  getBoxofficesByCurrentDate(currentDate: String!): [Boxoffice]
 }
