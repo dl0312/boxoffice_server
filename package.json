@@ -6,6 +6,7 @@
   "author": "Geon Lee <leegun2003@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "graphql-scalars": "^1.0.4",
     "graphql-yoga": "^1.18.3",
     "mysql2": "^2.0.1"
   },
