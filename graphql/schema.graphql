@@ -37,8 +37,41 @@ type Boxoffice {
   nation: Nation!
 }
 
+type BoxofficesInnerJoinMoive {
+  movieCd: String
+  movieNm: String
+  movieNmEn: String
+  movieNmOg: String
+  tmdbId: String
+  multi: Multi
+  nation: Nation
+  showCnt: [Int]
+  scrnCnt: [Int]
+  rankOldAndNew: [Int]
+  audiAcc: [Int]
+  audiCnt: [Int]
+  salesShare: [Float]
+  rank: [Int]
+  salesAmt: [Float]
+  salesAcc: [Float]
+  currentDate: [String]
+  totalRank: [Int]
+  audiChange: [Float]
+  salesChange: [Float]
+  rankInten: [Int]
+}
+
 type Query {
-  getAllMovies: [Movie]
+  getMovies: [Movie]
   getBoxoffices: [Boxoffice]
   getBoxofficesByCurrentDate(currentDate: String!): [Boxoffice]
+  getBoxofficesByFromDateAndToDate(
+    fromDate: String!
+    toDate: String!
+  ): [Boxoffice]
+  getBoxofficesByMovieCd(movieCd: String!): [Boxoffice]
+  getExtendedBoxofficesByFromDateAndToDate(
+    fromDate: String!
+    toDate: String!
+  ): [BoxofficesInnerJoinMoive]
 }

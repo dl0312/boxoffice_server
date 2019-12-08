@@ -57,8 +57,6 @@ class MySqlRepository:
     def add_to_boxoffice(self, records):
         for record in records:
             try:
-                print('record : ', record)
-                print('sql : ', self.sqls['insert_into_boxoffice'])
                 self.cursor.execute(
                     str(self.sqls['insert_into_boxoffice']), sql_builder.SQL.sort_args(record))
             except TypeError:
@@ -70,7 +68,6 @@ class MySqlRepository:
 
     def add_to_movie(self, records):
         for record in records:
-            print('movie record : ', record)
             self.cursor.execute(
                 str(self.sqls['insert_into_movie']), sql_builder.SQL.sort_args(record))
         self.commit()

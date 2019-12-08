@@ -1,8 +1,5 @@
 import { GraphQLServer } from "graphql-yoga";
-import {
-  typeDefs as scalarsTypeDefs,
-  resolvers as scalarsResolvers
-} from "graphql-scalars";
+import { resolvers as scalarsResolvers } from "graphql-scalars";
 import resolvers from "./graphql/resolver";
 
 const server = new GraphQLServer({
